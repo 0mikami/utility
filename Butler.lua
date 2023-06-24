@@ -88,6 +88,10 @@ function Butler:CleanUp()
 					object[methodName](object)
 				end
 			end
+
+			self._Tasks[object] = nil
+
+			object, methodName = next(self._Tasks)
 		end
 
 		self._IndexPointers = {}
