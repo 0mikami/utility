@@ -25,7 +25,7 @@ local function createFreeThread()
 	end
 end
 
-function Signal.new(): Signal
+function Signal.New(): Signal
 	return setmetatable({
 		_ListHead = nil,
 		_ListTail = nil,
@@ -33,7 +33,7 @@ function Signal.new(): Signal
 end
 
 function Signal:Connect(callback: (...any) -> ...any)
-	local connection = Connection.new(self, callback)
+	local connection = Connection.New(self, callback)
 
 	if self._ListTail == nil then
 		self._ListTail = connection
@@ -97,7 +97,7 @@ function Signal:Once(callback)
 	return connection
 end
 
-function Connection.new(signal: Signal, callback: (...any) -> ...any)
+function Connection.New(signal: Signal, callback: (...any) -> ...any)
 	return setmetatable({
 		_Signal = signal,
 		_CallBack = callback,

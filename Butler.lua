@@ -3,7 +3,7 @@ Butler.__index = Butler
 
 export type Butler = typeof(Butler)
 
-function Butler.new(): Butler
+function Butler.New(): Butler
 	return setmetatable({
 		_IndexPointers = {},
 		_Tasks = {},
